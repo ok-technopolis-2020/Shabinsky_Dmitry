@@ -4,19 +4,6 @@
 <head>
     <title>todos</title>
     <meta charset="UTF-8">
-    <style>
-        li {
-            list-style-type: none;
-            /* Убираем маркеры */
-        }
-
-        ul {
-            margin-left: 0;
-            /* Отступ слева в браузере IE и Opera */
-            padding-left: 0;
-            /* Отступ слева в браузере Firefox, Safari, Chrome */
-        }
-    </style>
 </head>
 
 <body>
@@ -27,7 +14,7 @@
     <main role="main">
         <section class="todo-app__main-controls main-controls">
             <div class="main-controls__input-area">
-                <button class="main-controls__input-area-button">✔</button>
+                <button class="main-controls__input-area-button" aria-label="To start searching">✔</button>
                 <input type="text" id="main-input" class="main-controls__input-area-input"
                     placeholder="What needs to be done?" aria-label="What needs to be done?" autofocus>
             </div>
@@ -37,43 +24,41 @@
                 <li>
                     <input type="checkbox" id="check-1" name="HTML" aria-label="edit HTML">
                     <span>HTML</span>
-                    <input type="button" id="delete_check-1" aria-label="delete HTML" value="x">
-                    <Br>
+                    <button aria-label="close list string with content HTML">x</button>
                 </li>
                 <li>
                     <input type="checkbox" id="check-2" name="CSS" aria-label="edit CSS">
                     <span>CSS</span>
-                    <input type="button" id="delete_check-2" aria-label="delete CSS" value="x">
-                    <Br>
+                    <button aria-label="close list string with content CSS">x</button>
                 </li>
                 <li>
                     <input type="checkbox" id="check-3" name="JS" aria-label="edit JS">
                     <span>JS</span>
-                    <input type="button" id="delete_check-3" aria-label="delete JS" value="x">
-                    <Br>
+                    <button aria-label="close list string with content JS">x</button>
                 </li>
                 <li>
                     <input type="checkbox" id="check-4" name="JS tools" aria-label="edit JS tools">
                     <span>JS tools</span>
-                    <input type="button" id="delete_check-4" aria-label="delete JS tools" value="x">
-                    <Br>
+                    <button aria-label="close list string with content JS tools">x</button>
                 </li>
             </ul>
         </section>
         <footer class="todo-app__actions-bar">
             <div>
                 <span id="textInfo-1" class="actions-bar__items-left">3 items left</span>
-                <label class="task-filter__item">
-                    <input type="radio" checked name="active-button" name="active-button"
-                        aria-label="all tasks">All</input>
-                </label>
-                <label class="task-filter__item">
-                    <input type="radio" name="active-button" type="submit" aria-label="active tasks">Active</input>
-                </label>
-                <label class="task-filter__item">
-                    <input type="radio" name="active-button" type="submit"
-                        aria-label="completed tasks">Completed</input>
-                </label>
+                <div>
+                    <label class="task-filter__item">
+                        <input type="radio" checked name="active-button" name="active-button"
+                            aria-label="all tasks">All</input>
+                    </label>
+                    <label class="task-filter__item">
+                        <input type="radio" name="active-button" type="submit" aria-label="active tasks">Active</input>
+                    </label>
+                    <label class="task-filter__item">
+                        <input type="radio" name="active-button" type="submit"
+                            aria-label="completed tasks">Completed</input>
+                    </label>
+                </div>
                 <button name="clear-button" type="submit" aria-label="clear completed tasks">Clear
                     completed</button>
             </div>
