@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>todos</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header class="todo-app__header">
+        <h1 class="tittle">Todos</h1>
+    </header>
+
+    <main role="main">
+        <section class="todo-app__main-controls main-controls">
+            <div class="main-controls__input-area">
+                <button class="main-controls__input-area-button" aria-label="To start searching">✔</button>
+                <input type="text" id="main-input" class="main-controls__input-area-input"
+                    placeholder="What needs to be done?" aria-label="What needs to be done?" autofocus>
+            </div>
+        </section>
+        <section class="todo-app__main-content main-content">
+            <ul class="main-content__list">
+                <li>
+                    <input type="checkbox" id="check-1" name="HTML" aria-label="edit HTML">
+                    <span>HTML</span>
+                    <button aria-label="close list string with content HTML">x</button>
+                </li>
+                <li>
+                    <input type="checkbox" id="check-2" name="CSS" aria-label="edit CSS">
+                    <span>CSS</span>
+                    <button aria-label="close list string with content CSS">x</button>
+                </li>
+                <li>
+                    <input type="checkbox" id="check-3" name="JS" aria-label="edit JS">
+                    <span>JS</span>
+                    <button aria-label="close list string with content JS">x</button>
+                </li>
+                <li>
+                    <input type="checkbox" id="check-4" name="JS tools" aria-label="edit JS tools">
+                    <span>JS tools</span>
+                    <button aria-label="close list string with content JS tools">x</button>
+                </li>
+            </ul>
+        </section>
+        <footer class="todo-app__actions-bar">
+            <div>
+                <span id="textInfo-1" class="actions-bar__items-left">3 items left</span>
+                <div>
+                    <label class="task-filter__item">
+                        <input type="radio" checked name="active-button" name="active-button"
+                            aria-label="all tasks">All</input>
+                    </label>
+                    <label class="task-filter__item">
+                        <input type="radio" name="active-button" type="submit" aria-label="active tasks">Active</input>
+                    </label>
+                    <label class="task-filter__item">
+                        <input type="radio" name="active-button" type="submit"
+                            aria-label="completed tasks">Completed</input>
+                    </label>
+                </div>
+                <button name="clear-button" aria-label="clear completed tasks">Clear
+                    completed</button>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
