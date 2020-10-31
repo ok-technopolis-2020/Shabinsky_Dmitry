@@ -4,7 +4,9 @@
 <head>
     <title>todos</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style1.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:0,100;0,300;' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style1.css">
+
 </head>
 
 <body>
@@ -16,35 +18,38 @@
         <main class="todo-app__frame" role="main">
             <section class="todo-app__main-controls main-controls">
                 <div class="main-controls__input-area">
-                    <button class="main-controls__input-area-button" aria-label="To start searching"></button>
-                    <input type="text" id="main-input" class="main-controls__input-area-input"
-                        placeholder="What needs to be done?" aria-label="What needs to be done?" autofocus>
+                    <button class="main-controls__button" aria-label="To start searching"></button>
+                    <input type="text" id="main-input" class="main-controls__input" placeholder="What needs to be done?"
+                        aria-label="What needs to be done?" autofocus>
                 </div>
             </section>
             <section class="todo-app__tasks">
                 <ul class="todo-app__tasks-list tasks">
                     <li class="todo-app__tasks-item task-item">
-                        <input type="checkbox" class="task-item__checkbox" id="check-1" name="HTML" aria-label="edit HTML">     
-                        <label for="check-1"></label>                   
-                        <span>HTML</span>
+                        <input type="checkbox" class="task-item__checkbox" id="check-1" name="HTML"
+                            aria-label="edit HTML">
+                        <label for="check-1"></label>
+                        <span class="task-item__text">HTML</span>
                         <button class="task-item__button" aria-label="close list string with content HTML"></button>
                     </li>
                     <li class="todo-app__tasks-item task-item">
-                        <input type="checkbox" class="task-item__checkbox" id="check-2" name="CSS" aria-label="edit CSS">
+                        <input type="checkbox" class="task-item__checkbox" id="check-2" name="CSS"
+                            aria-label="edit CSS">
                         <label for="check-2"></label>
-                        <span>CSS</span>
+                        <span class="task-item__text">CSS</span>
                         <button class="task-item__button" aria-label="close list string with content CSS"></button>
                     </li>
                     <li class="todo-app__tasks-item task-item">
                         <input type="checkbox" class="task-item__checkbox" id="check-3" name="JS" aria-label="edit JS">
                         <label for="check-3"></label>
-                        <span>JS</span>
+                        <span class="task-item__text">JS</span>
                         <button class="task-item__button" aria-label="close list string with content JS"></button>
                     </li>
                     <li class="todo-app__tasks-item task-item">
-                        <input type="checkbox" class="task-item__checkbox" id="check-4" name="JS tools" aria-label="edit JS tools">
+                        <input type="checkbox" class="task-item__checkbox" id="check-4" name="JS tools"
+                            aria-label="edit JS tools">
                         <label for="check-4"></label>
-                        <span>JS tools</span>
+                        <span class="task-item__text">JS tools</span>
                         <button class="task-item__button" aria-label="close list string with content JS tools">
                         </button>
                     </li>

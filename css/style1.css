@@ -20,21 +20,24 @@ ul {
     padding-left: 0;
 }
 
+html,
+body {
+    margin     : 0;
+    padding    : 0;
+    height     : 100%;
+    font-family: Roboto, sans-serif;
+}
+
 html {
     background-color: var(--html-color);
     display         : flex;
-    align-items     : center;
-    align-content   : center;
     justify-content : center;
-    overflow        : auto;
 }
 
 .todo-app {
-    font-family   : Roboto;
     display       : flex;
     flex-direction: column;
     width         : 562px;
-    display       : block;
 }
 
 .todo-app__header-tittle {
@@ -50,40 +53,68 @@ html {
 
 .todo-app__frame {
     background-color: var(--frame-color);
+    border-radius   : 6px;
 }
 
-.todo-app__main-controls {
-    display        : flex;
-    flex-direction : row;
-    align-items    : center;
-    justify-content: center;
-    box-shadow     : inset 0px -1px 0px var(--shadow-color);
-    height         : var(--item-height);
+.todo-app__frame:after {
+    content   : '';
+    position  : absolute;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    height    : calc(100% + 4px);
+    z-index   : -1;
+    left      : 2px;
+    right     : 2px;
 }
 
-.todo-app__main-controls button {
-    width        : 25px;
-    height       : 25px;
+.todo-app__frame:before {
+    content   : '';
+    position  : absolute;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    height    : calc(100% + 8px);
+    z-index   : -2;
+    left      : 3px;
+    right     : 3px;
+}
+
+.main-controls {
+    box-shadow: inset 0px -1px 0px var(--shadow-color);
+}
+
+.main-controls__input-area {
+    display: flex;
+    width  : 100%;
+    height : var(--item-height);
+}
+
+
+.main-controls__button {
+    position     : relative;
+    width        : 60px;
+    height       : 80%;
     border       : 0;
-    flex         : 0 0 auto;
-    align-self   : flex-start;
-    background   : no-repeat center url(search-button.svg);
+    margin       : 5px;
+    background   : no-repeat center url(../assets/search-button.svg);
     border-radius: 6px;
 }
 
-.todo-app__main-controls button:hover {
+.main-controls__button:hover {
     background-color: rgb(235, 235, 235);
 }
 
-.todo-app__main-controls input {
-    font-style : italic;
-    font-weight: 300;
-    font-size  : 24px;
-    line-height: 21px;
-    width      : 490px;
-    height     : 20px;
-    margin     : 0 10px 0 0;
-    border     : 0;
+.main-controls__input {
+    font-style   : italic;
+    font-weight  : 300;
+    font-size    : 24px;
+    line-height  : 21px;
+    flex-grow    : 1;
+    height       : 80%;
+    margin       : 5px;
+    border       : 0;
+    border-radius: 6px;
+}
+
+.main-controls__input:hover {
+    background-color: rgb(235, 235, 235);
 }
 
 .todo-app__tasks-list {
@@ -97,10 +128,13 @@ html {
     align-items   : center;
     height        : var(--item-height);
     box-shadow    : inset 0px -1px 0px var(--shadow-color);
+    clip          : auto;
+    width         : auto;
+    height        : auto;
+    min-height    : var(--item-height);
 }
 
 .task-item__checkbox {
-
     position: absolute;
     z-index : -1;
     opacity : 0;
@@ -117,22 +151,44 @@ html {
     width     : 40px;
     height    : 40px;
     margin    : 0 10px 0 10px;
-    background: no-repeat center url(done-not-active.svg);
+    background: no-repeat center url(../assets/done-not-active.svg);
 }
 
 .task-item__checkbox:checked+label::before {
-    background: no-repeat center url(done.svg);
+    content   : '';
+    width     : 40px;
+    height    : 40px;
+    margin    : 0 10px 0 10px;
+    background: no-repeat center url(../assets/done.svg);
 }
 
-.task-item span {
-    font-style : normal;
-    font-weight: 300;
-    font-size  : 24px;
-    line-height: 21px;
-    margin     : 0 10px 0 0;
+.task-item__checkbox:checked~.task-item__text {
+    font-style           : italic;
+    text-decoration      : line-through;
+    text-decoration-color: black;
 }
 
-.task-item__button {
+.task-item__text {
+    display     : table;
+    table-layout: fixed;
+    font-style  : normal;
+    font-weight : 300;
+    font-size   : 24px;
+    line-height : 21px;
+    margin      : 0 10px 10px 0;
+    word-wrap   : break-word;
+    width       : 100%;
+}
+
+input.task-item__text {
+    position: absolute;
+    clip    : rect(0 0 0 0);
+    width   : 1px;
+    height  : 1px;
+    margin  : -1px;
+}
+
+.task-item .task-item__button {
     width           : 40px;
     height          : 40px;
     background-color: var(--frame-color);
@@ -140,11 +196,11 @@ html {
 }
 
 .task-item__button:focus {
-    background: no-repeat center url(remove-button.svg);
+    background: no-repeat center url(../assets/remove-button.svg);
 }
 
 .task-item:hover>.task-item__button {
-    background: no-repeat center url(remove-button.svg);
+    background: no-repeat center url(../assets/remove-button.svg);
 }
 
 .todo-app__actions-bar {
@@ -161,7 +217,7 @@ html {
     color          : var(--footer-item-color);
 }
 
-.todo-app__actions-bar span {
+.todo-app__actions-bar-count {
     margin: 0 0 0 10px;
     color : var(--footer-item-color);
 }
@@ -213,4 +269,12 @@ html {
 
 .label-item input[type=radio]:disabled+label {
     border: 1px solid #ffffff;
+}
+
+.actions-bar {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+        0 8px 0 -3px var(--html-color),
+        0 9px 1px -3px rgba(0, 0, 0, 0.2),
+        0 16px 0 -6px var(--html-color),
+        0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }
