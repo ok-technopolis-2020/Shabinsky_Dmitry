@@ -52,18 +52,20 @@ html {
 }
 
 .todo-app__frame {
+    position        : relative;
     background-color: var(--frame-color);
-    border-radius   : 6px;
 }
 
 .todo-app__frame:after {
-    content   : '';
-    position  : absolute;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    height    : calc(100% + 4px);
-    z-index   : -1;
-    left      : 2px;
-    right     : 2px;
+    content         : '';
+    position        : absolute;
+    box-shadow      : 0px 2px 4px rgba(0, 0, 0, 0.2);
+    height          : calc(100% + 4px);
+    z-index         : -1;
+    left            : 2px;
+    right           : 2px;
+    background-color: white;
+    top             : 0;
 }
 
 .todo-app__frame:before {
@@ -95,6 +97,7 @@ html {
     margin       : 5px;
     background   : no-repeat center url(../assets/search-button.svg);
     border-radius: 6px;
+    outline-color: var(--footer-item-color);
 }
 
 .main-controls__button:hover {
@@ -111,6 +114,7 @@ html {
     margin       : 5px;
     border       : 0;
     border-radius: 6px;
+    outline-color: var(--footer-item-color);
 }
 
 .main-controls__input:hover {
@@ -120,12 +124,14 @@ html {
 .todo-app__tasks-list {
     display       : flex;
     flex-direction: column;
+    margin        : 0;
 }
 
 .todo-app__tasks-item {
     display       : flex;
     flex-direction: row;
     align-items   : center;
+    align-content : center;
     height        : var(--item-height);
     box-shadow    : inset 0px -1px 0px var(--shadow-color);
     clip          : auto;
@@ -135,49 +141,48 @@ html {
 }
 
 .task-item__checkbox {
-    position: absolute;
-    z-index : -1;
-    opacity : 0;
+    outline-color     : var(--footer-item-color);
+    -webkit-appearance: none;
+    display           : inline-flex;
+    margin-left       : 10px;
+    margin-right      : 10px;
+    background        : no-repeat center url(../assets/done-not-active.svg);
 }
 
-.task-item__checkbox+label {
-    display    : inline-flex;
-    align-items: center;
-    user-select: none;
+.task-item__checkbox::before {
+    display: inline-flex;
+    content: "";
+    width  : 40px;
+    height : 40px;
+    border : none;
 }
 
-.task-item__checkbox+label::before {
-    content   : '';
-    width     : 40px;
-    height    : 40px;
-    margin    : 0 10px 0 10px;
-    background: no-repeat center url(../assets/done-not-active.svg);
+.task-item__checkbox:hover::before {
+    background   : no-repeat center url(../assets/done-not-active.svg);
 }
 
-.task-item__checkbox:checked+label::before {
-    content   : '';
-    width     : 40px;
-    height    : 40px;
-    margin    : 0 10px 0 10px;
+.task-item__checkbox:checked::before {
     background: no-repeat center url(../assets/done.svg);
 }
 
 .task-item__checkbox:checked~.task-item__text {
     font-style           : italic;
     text-decoration      : line-through;
-    text-decoration-color: black;
+    text-decoration-color: var(--footer-item-color);
+    color                : var(--footer-item-color);
 }
 
 .task-item__text {
-    display     : table;
-    table-layout: fixed;
-    font-style  : normal;
-    font-weight : 300;
-    font-size   : 24px;
-    line-height : 21px;
-    margin      : 0 10px 10px 0;
-    word-wrap   : break-word;
-    width       : 100%;
+    display      : table;
+    table-layout : fixed;
+    font-style   : normal;
+    font-weight  : 300;
+    font-size    : 24px;
+    line-height  : 21px;
+    word-wrap    : break-word;
+    width        : 100%;
+    margin-top   : 5px;
+    margin-bottom: 5px;
 }
 
 input.task-item__text {
@@ -193,6 +198,8 @@ input.task-item__text {
     height          : 40px;
     background-color: var(--frame-color);
     border          : 0;
+    outline-color   : var(--footer-item-color);
+    margin-right    : 5px;
 }
 
 .task-item__button:focus {
@@ -235,6 +242,7 @@ input.task-item__text {
     background-color: var(--frame-color);
     border-radius   : 6px;
     line-height     : 22px;
+    outline-color   : var(--footer-item-color);
 }
 
 .actions-bar__button:hover {
@@ -249,7 +257,7 @@ input.task-item__text {
     display: none;
 }
 
-.label-item label {
+.label-item__label {
     display      : inline-block;
     cursor       : pointer;
     padding      : 0px 10px;
@@ -263,7 +271,7 @@ input.task-item__text {
     border: 1px solid #EBDFDF;
 }
 
-.label-item label:hover {
+.label-item__label:hover {
     background-color: rgb(235, 235, 235);
 }
 
@@ -272,9 +280,5 @@ input.task-item__text {
 }
 
 .actions-bar {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
-        0 8px 0 -3px var(--html-color),
-        0 9px 1px -3px rgba(0, 0, 0, 0.2),
-        0 16px 0 -6px var(--html-color),
-        0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
