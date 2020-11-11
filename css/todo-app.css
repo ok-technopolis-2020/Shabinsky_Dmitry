@@ -1,0 +1,49 @@
+.todo-app {
+    display       : flex;
+    flex-direction: column;
+    width         : var(--width);
+}
+
+.todo-app__header-tittle {
+    font-style    : normal;
+    font-weight   : 200;
+    font-size     : 100px;
+    line-height   : 21px;
+    text-align    : center;
+    /* identical to box height, or 21% */
+    letter-spacing: -2.5px;
+    color         : var(--header-color);
+}
+
+.todo-app__frame {
+    position        : relative;
+    background-color: var(--frame-color);
+}
+
+.todo-app__frame:after {
+    content         : '';
+    position        : absolute;
+    height          : calc(100% + 4px);
+    z-index         : -1;
+    left            : 2px;
+    right           : 2px;
+    background-color: white;
+    top             : 0;
+    box-shadow      : 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app__frame:before {
+    content   : '';
+    position  : absolute;
+    height    : calc(100% + 8px);
+    z-index   : -2;
+    left      : 3px;
+    right     : 3px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app__tasks-list {
+    display       : flex;
+    flex-direction: column;
+    margin        : 0;
+}

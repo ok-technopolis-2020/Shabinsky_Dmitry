@@ -1,0 +1,80 @@
+.todo-app__actions-bar {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    align-content  : center;
+    justify-content: space-between;
+    height         : var(--footer-height);
+    font-style     : normal;
+    font-weight    : 300;
+    font-size      : 14px;
+    line-height    : 21px;
+    color          : var(--footer-item-color);
+}
+
+.todo-app__actions-bar-count {
+    margin: 0 0 0 10px;
+    color : var(--footer-item-color);
+}
+
+.actions-bar__button {
+    font-family     : Roboto;
+    font-style      : normal;
+    font-weight     : 300;
+    font-size       : 14px;
+    line-height     : 21px;
+    color           : var(--footer-item-color);
+    margin          : 0 10px 0 0;
+    letter-spacing  : -0.35px;
+    border          : 1px solid #ffffff;
+    background-color: var(--frame-color);
+    border-radius   : 6px;
+    line-height     : 22px;
+    outline-color   : var(--footer-item-color);
+}
+
+.actions-bar__button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.actions-bar__button:focus {
+    background-color: rgb(235, 235, 235);
+}
+
+.label-item {
+    display: inline-block;
+}
+
+.label-item input[type=radio] {
+    appearance: none;
+}
+
+.label-item__label {
+    display      : inline-block;
+    cursor       : pointer;
+    padding      : 0px 10px;
+    line-height  : 22px;
+    border       : 1px solid #ffffff;
+    border-radius: 6px;
+    user-select  : none;
+}
+
+.label-item__input:checked+label {
+    border: 1px solid #EBDFDF;
+}
+
+.label-item__input:focus+label {
+    background-color: rgb(235, 235, 235);
+}
+
+.label-item__label:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.label-item__input:disabled+label {
+    border: 1px solid #ffffff;
+}
+
+.actions-bar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
