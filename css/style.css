@@ -1,0 +1,43 @@
+@import url("/css/todo-app.css");
+@import url("/css/main-controls.css");
+@import url("/css/task-item.css");
+@import url("/css/action-bar.css");
+
+:root {
+    --html-color       : #F2F2F2;
+    --header-color     : #CCCCCC;
+    --frame-color      : #ffffff;
+    --shadow-color     : #E6E6E6;
+    --footer-item-color: #888888;
+}
+
+:root {
+    --item-height  : 66px;
+    --footer-height: 43px;
+    --button-size  : 16px;
+    --width        : 562px;
+    --width-min    : 570px;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding-left: 0;
+}
+
+html,
+body {
+    margin     : 0;
+    padding    : 0;
+    height     : 100%;
+    font-family: Roboto, sans-serif;
+}
+
+html {
+    background-color: var(--html-color);
+    display         : flex;
+    justify-content : center;
+    min-width       : var(--width-min);
+}
